@@ -111,6 +111,8 @@ var tests = [
                                       0x01,
                                       0xC0, 0xA8, 0x64, 0x01,
                                       0x00, 0x50]));
+
+      delete request.chunk
       assert.deepEqual(request,
                        { cmd: 'connect',
                          srcAddr: undefined,
@@ -141,6 +143,7 @@ var tests = [
                                       0x01,
                                       0xC0, 0xA8, 0x64, 0x01,
                                       0x00, 0x50]));
+      delete request.chunk
       assert.deepEqual(request,
                        { cmd: 'bind',
                          srcAddr: undefined,
@@ -171,6 +174,7 @@ var tests = [
                                       0x01,
                                       0xC0, 0xA8, 0x64, 0x01,
                                       0x00, 0x50]));
+      delete request.chunk
       assert.deepEqual(request,
                        { cmd: 'udp',
                          srcAddr: undefined,
@@ -204,6 +208,7 @@ var tests = [
                                        0x00, 0x00, 0x03, 0x00,
                                        0x00, 0x02, 0xB0, 0x01,
                                       0x08, 0x40]));
+      delete request.chunk
       assert.deepEqual(request,
                        { cmd: 'connect',
                          srcAddr: undefined,
@@ -235,6 +240,7 @@ var tests = [
                                       0x0A, 0x6E, 0x6F, 0x64, 0x65, 0x6A, 0x73,
                                        0x2E, 0x6F, 0x72, 0x67,
                                       0x05, 0x39]));
+      delete request.chunk
       assert.deepEqual(request,
                        { cmd: 'connect',
                          srcAddr: undefined,
@@ -267,6 +273,7 @@ var tests = [
       stream.emit('data', new Buffer([0x67]));
       stream.emit('data', new Buffer([0x05]));
       stream.emit('data', new Buffer([0x39]));
+      delete request.chunk
       assert.deepEqual(request,
                        { cmd: 'connect',
                          srcAddr: undefined,
